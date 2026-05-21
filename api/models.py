@@ -6,6 +6,8 @@ class User(models.Model):
     password = models.CharField(max_length=100)
 
 class ServiceRequest(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    request_type = models.CharField(max_length=100)
+    name = models.CharField(max_length=255, default="Anonymous")
+    request_type = models.CharField(max_length=255)
+    details = models.TextField()
+    needed_time = models.DateTimeField()
     status = models.CharField(max_length=50, default="Pending")
